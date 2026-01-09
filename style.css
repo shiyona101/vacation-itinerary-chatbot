@@ -216,13 +216,7 @@ body {
   font-size: 0.95rem;
 }
 
-/* footer */
 
-.footer {
-  text-align: center;
-  font-size: 0.85rem;
-  color: #6b7280;
-}
 
 @media (max-width: 600px) {
   .header h1 {
