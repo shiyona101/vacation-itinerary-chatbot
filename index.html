@@ -2,36 +2,139 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <!-- title page-->
-  <title>Vacation Itinerary Chatbot</title>
-
-  <!-- links to css code-->
+  <title>TripBuddy | AI Travel Planner</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
-
-
--------------
 <body>
   <div class="app-container">
 
-    <!-- displays app title & description -->
+    <!-- header  -->
     <header class="header">
-      <h1>TripBuddy</h1>
-      <p>Build a personalized vacation itinerary</p>
+      <!-- website name -->
+      <h1>TripBuddy ✈️</h1>
+      <p class="subtitle">
+        <!-- general website description  -->
+        Your personal assistant for building the perfect vacation itinerary
+      </p>
     </header>
 
-    <!-- chat container: includes chat history and user input area -->
+    <!-- user section -->
+    <section class="trip-setup">
+      <h2>Plan Your Trip</h2>
+
+      <div class="setup-grid">
+        <div class="setup-item">
+          <label for="destination">Destination</label>
+          <input type="text" id="destination" placeholder="e.g. Paris, France">
+        </div>
+
+        <div class="setup-item">
+          <label for="dates">Travel Dates</label>
+          <input type="text" id="dates" placeholder="e.g. June 10 – June 17">
+        </div>
+
+        <div class="setup-item">
+          <label for="budget">Budget Range</label>
+          <select id="budget">
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+          </select>
+        </div>
+
+        <div class="setup-item">
+          <label for="transport">Transportation Preference</label>
+          <select id="transport">
+            <option>Public Transit</option>
+            <option>Rental Car</option>
+            <option>Rideshare</option>
+            <option>No Preference</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- chatbot -->
     <main class="chat-container">
 
-      <!-- message display area: bot and user messages will be appended -->
+      <!-- Chat History -->
       <div class="chat-box" id="chatBox">
+        <div class="message bot-message">
+          <p>
+            Hi! 👋 I’ll help you create a personalized itinerary based on your
+            preferences, schedule, and travel style.
+          </p>
+        </div>
 
-     
+        <div class="message bot-message">
+          <p>
+            Tell me what you’re most excited about on this trip —
+            food, sightseeing, relaxation, or adventure?
+          </p>
+        </div>
+      </div>
+
+      <!-- automatic preferences -->
+      <section class="quick-options">
+        <h3>Travel Interests</h3>
+        <div class="option-buttons">
+          <button class="option-btn">🍽️ Food</button>
+          <button class="option-btn">🏛️ Sightseeing</button>
+          <button class="option-btn">🌲 Nature</button>
+          <button class="option-btn">🎉 Nightlife</button>
+          <button class="option-btn">🛍️ Shopping</button>
+        </div>
+      </section>
+
+      <!-- user input -->
+      <div class="input-area">
+        <input
+          type="text"
+          id="userInput"
+          placeholder="Describe your ideal trip..."
+          aria-label="User message input"
+        />
+        <button id="sendBtn">Generate Plan</button>
+      </div>
+
+    </main>
+
+    <!-- itinerary output -->
+    <section class="itinerary-preview">
+      <h2>Itinerary Preview</h2>
+
+      <div class="day-card">
+        <h3>Day 1</h3>
+        <ul>
+          <li>Arrival and accommodation check-in</li>
+          <li>Nearby attractions and dining options</li>
+          <li>Evening activity based on interests</li>
+        </ul>
+      </div>
+
+      <div class="day-card">
+        <h3>Day 2</h3>
+        <ul>
+          <li>Morning activity optimized for conditions</li>
+          <li>Afternoon exploration or free time</li>
+          <li>Budget-aware recommendations</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- footer info -->
+    <footer class="footer">
+      <p>
+        Designed to help travelers plan smarter and stress-free trips
+      </p>
+    </footer>
 
   </div>
+
+
+  <script src="script.js"></script>
 </body>
 </html>
