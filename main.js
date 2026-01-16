@@ -207,22 +207,14 @@ const cities = [
 
 cities.forEach(cityObj => {
   const card = document.createElement('div');
-  card.className = 'city-card'; // Add CSS styling for this class
+  card.className = 'city-card';
   
   const img = document.createElement('img');
   img.src = cityObj.image;
   img.alt = cityObj.name;
-  img.style.width = '100%';
-  img.style.height = '200px';
-  img.style.objectFit = 'cover';
-  img.style.borderRadius = '8px 8px 0 0';
   
   const cityName = document.createElement('div');
   cityName.textContent = cityObj.name;
-  cityName.style.padding = '10px';
-  cityName.style.textAlign = 'center';
-  cityName.style.fontWeight = 'bold';
-  cityName.style.cursor = 'pointer';
   
   card.appendChild(img);
   card.appendChild(cityName);
