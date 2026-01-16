@@ -172,21 +172,66 @@ tabButtons.forEach(btn => {
 const exploreGrid = document.querySelector('.explore-placeholder') || document.getElementById('cityGrid');
 
 const cities = [
-  "Paris","Tokyo","New York","London","Barcelona","Rome","Amsterdam","Berlin","Sydney","Dubai",
-  "Bangkok","Singapore","Istanbul","Prague","Vienna","Hong Kong","Lisbon","Seoul","Los Angeles","Chicago",
-  "Rio de Janeiro","Cape Town","Vancouver","Mexico City","Buenos Aires","Moscow","Athens","Cairo","Budapest","Miami"
+  {name: "Paris", image: "https://loveincorporated.blob.core.windows.net/contentimages/fullsize/a8a9bce0-de89-417e-a65e-ecdaf23d1d59-paris-full-guide-update.jpg"},
+  {name: "Tokyo", image: "https://wallpaperaccess.com/full/44164.jpg"},
+  {name: "New York", image: "https://th.bing.com/th/id/R.cf34b93eb0a87fe2085efa649a47d521?rik=elSp%2bjkA%2fEBZfg&riu=http%3a%2f%2fbpc.h-cdn.co%2fassets%2f17%2f23%2f1600x800%2flandscape-1496690479-new-york-tourist-attractions.jpg&ehk=d4JFcY9X9JtMK1q7rWEbMjyZdOTPxQTN%2brP1qqHkwNw%3d&risl=&pid=ImgRaw&r=0"},
+  {name: "London", image: "https://cdn.unifiedcommerce.com/content/product/large/5900511104042.jpg"},
+  {name: "Barcelona", image: "https://wallpaperaccess.com/full/1322174.jpg"},
+  {name: "Rome", image: "https://img.ex.co/image/upload/v1706818824/hv3rfvephstjqdmm3wft.jpg"},
+  {name: "Amsterdam", image: "https://misstourist.com/wp-content/uploads/2023/12/2-1-Canal-Belt-Grachtengordel-%E2%80%93-best-area-for-couples-660x435@2x.jpg"},
+  {name: "Berlin", image: "https://lp-cms-production.imgix.net/2019-06/GettyImages-475150263_super.jpg?auto=compress&fit=crop&fm=auto&sharp=10&vib=20&w=1200&h=800"},
+  {name: "Sydney", image: "https://wallpapercave.com/wp/wp2684726.jpg"},
+  {name: "Dubai", image: "https://wallpaperaccess.com/full/1735114.jpg"},
+  {name: "Bangkok", image: "https://www.tripsavvy.com/thmb/ZtwK0eWCSDo4DQjEGi-IupGJ2I0=/5472x3648/filters:no_upscale():max_bytes(150000):strip_icc()/wat-arun-temple-bangkok-5c461eee46e0fb00016fe445.jpg"},
+  {name: "Singapore", image: "https://tse3.mm.bing.net/th/id/OIP.d4BXWuPhEaobxhJHDsmpfgHaE8?rs=1&pid=ImgDetMain&o=7&rm=3"},
+  {name: "Istanbul", image: "https://media.istockphoto.com/photos/stanbul-turkey-picture-id458012057?b=1&k=20&m=458012057&s=170667a&w=0&h=zBrkAjxV8Ser_DKekq6g9EWuPgXsNc8qktI3rpwoj0g="},
+  {name: "Prague", image: "https://www.siliconrepublic.com/wp-content/uploads/2018/06/Prague_shutterstock_696131494-718x523.jpg"},
+  {name: "Vienna", image: "https://tse4.mm.bing.net/th/id/OIP._WIfrR7zlI-s-kI9G9jxlAHaEK?w=1440&h=810&rs=1&pid=ImgDetMain&o=7&rm=3"},
+  {name: "Hong Kong", image: "https://www.discoverhongkong.com/content/dam/dhk/intl/explore/tips-for-making-your-trip-to-hong-kong/tips-for-making-your-trip-to-hong-kong-1920x1080.jpg"},
+  {name: "Lisbon", image: "https://wallpaperaccess.com/full/6712385.jpg"},
+  {name: "Seoul", image: "https://www.agoda.com/wp-content/uploads/2024/08/Han-River-seoul-korea-1126x700-1.jpg"},
+  {name: "Los Angeles", image: "https://s3.amazonaws.com/mentoring.redesign/s3fs-public/los-angeles.jpg"},
+  {name: "Chicago", image: "https://gregbenzphotography.com/wp-content/uploads/2011/03/The-Bean-and-the-Chicago-Skyline.jpg"},
+  {name: "Rio De Janiero", image: "https://cdn.britannica.com/03/94403-050-03683FB0/Rio-de-Janeiro-Braz.jpg"},
+  {name: "Cape Town", image: "https://www.earthsattractions.com/wp-content/uploads/2017/11/V_A_Waterfront-870x540.jpg"},
+  {name: "Vancouver", image: "https://www.tripsavvy.com/thmb/DnXZn47c_DgjZWN50MzwZ4X2vT4=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-629829924-5bdb57f74cedfd0026ae431f.jpg"},
+  {name: "Mexico City", image: "https://visitingmexico.com/wp-content/uploads/CDMX-scaled.jpeg"},
+  {name: "Buenos Aires", image: "https://tse4.mm.bing.net/th/id/OIP.OgcsoZbwNF1Jo_gK4ZpiywHaFR?rs=1&pid=ImgDetMain&o=7&rm=3"},
+  {name: "Moscow", image: "https://th.bing.com/th/id/R.88a84c08a8fecbd255b672d1d288da73?rik=3KgrNpjTVwOWCA&riu=http%3a%2f%2fwww.businessdestinations.com%2fwp-content%2fuploads%2f2015%2f02%2fMoscow.jpg&ehk=YNfQ7l5qpMwf7q6ED5ckY51DSRFL43xceZiBZAp3FA0%3d&risl=&pid=ImgRaw&r=0"},
+  {name: "Athens", image: "https://tse4.mm.bing.net/th/id/OIP.TTGRnCk5fDpeblPAFOR4jgHaFj?rs=1&pid=ImgDetMain&o=7&rm=3"},
+  {name: "Cairo", image: "https://media.cntraveler.com/photos/655cdf1d2d09a7e0b27741b5/16:9/w_2560%2Cc_limit/Cairo%2520Egypt_GettyImages-1370918272.jpg"},
+  {name: "Budapest", image: "https://completecityguides.com/images/blog/full/best-europe-destinations/budapest-chain-bridge.jpg"},
+  {name: "Miami", image: "https://tse1.mm.bing.net/th/id/OIP.ILRTrQmOGq8Sq-quxVhquwHaE8?rs=1&pid=ImgDetMain&o=7&rm=3"}
 ];
 
-cities.forEach(city => {
-  const btn = document.createElement('button');
-  btn.textContent = city;
 
-  btn.addEventListener('click', () => {
-    document.getElementById('destination').value = city;
-    // NOTE: do NOT switch tabs here anymore
+cities.forEach(cityObj => {
+  const card = document.createElement('div');
+  card.className = 'city-card'; // Add CSS styling for this class
+  
+  const img = document.createElement('img');
+  img.src = cityObj.image;
+  img.alt = cityObj.name;
+  img.style.width = '100%';
+  img.style.height = '200px';
+  img.style.objectFit = 'cover';
+  img.style.borderRadius = '8px 8px 0 0';
+  
+  const cityName = document.createElement('div');
+  cityName.textContent = cityObj.name;
+  cityName.style.padding = '10px';
+  cityName.style.textAlign = 'center';
+  cityName.style.fontWeight = 'bold';
+  cityName.style.cursor = 'pointer';
+  
+  card.appendChild(img);
+  card.appendChild(cityName);
+  
+  card.addEventListener('click', () => {
+    document.getElementById('destination').value = cityObj.name;
   });
-
-  exploreGrid.appendChild(btn);
+  
+  exploreGrid.appendChild(card);
 });
 
 // ---------------- Calendar Popup ----------------
