@@ -52,12 +52,7 @@ function handleSendMessage() {
  }
 
 
-
-
- displayMessage(message, 'user');
  userInput.value = '';
-
-
 
 
  const botResponse = generateItinerary(destination, dates, budget, transport, selectedInterests, message);
@@ -73,9 +68,18 @@ function displayMessage(text, sender) {
  const messageDiv = document.createElement('div');
  messageDiv.className = `message ${sender}-message`;
  if (sender === 'bot') {
-   messageDiv.innerHTML = `<p>${text}</p>`;
+   // escape HTML then convert newlines to <br> so messages render on separate lines
+   const safe = String(text)
+     .replace(/&/g, '&amp;')
+     .replace(/</g, '&lt;')
+     .replace(/>/g, '&gt;');
+   messageDiv.innerHTML = `<p>${safe.replace(/\n/g, '<br>')}</p>`;
  } else {
-   messageDiv.innerHTML = `<p style="background: #2563eb; color: white; margin-left: auto; max-width: 85%;">${text}</p>`;
+   const safe = String(text)
+     .replace(/&/g, '&amp;')
+     .replace(/</g, '&lt;')
+     .replace(/>/g, '&gt;');
+   messageDiv.innerHTML = `<p style="background: #2563eb; color: white; margin-left: auto; max-width: 85%;">${safe}</p>`;
  }
  chatBox.appendChild(messageDiv);
  chatBox.scrollTop = chatBox.scrollHeight;
@@ -227,20 +231,13 @@ async function searchFlights() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
 function generateItinerary(destination, dates, budget, transport, interests, userMessage) {
- return `Great! I'm planning a trip to ${destination} from ${dates} with a ${budget} budget.
- Transportation: ${transport}. Your interests: ${interests.length > 0 ? interests.join(', ') : 'general sightseeing'}.
- Special requests: ${userMessage}. Your personalized itinerary is being generated...`;
+ return `Great! I'm planning a trip to ${destination} from ${dates} with a $${budget} budget
+ Transportation: ${transport}
+ Your interests: ${interests.length > 0 ? interests.join(', ') : 'general sightseeing'}
+ Special requests: ${userMessage}
+
+Your personalized itinerary is being generated...`;
 }
 
 
